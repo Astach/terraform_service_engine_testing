@@ -7,4 +7,8 @@ module "s3" {
   aws_region = local.aws_region
 }
 
+module "sns" {
+  source = "../modules/sns"
+}
+
 

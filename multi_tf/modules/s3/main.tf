@@ -1,3 +1,6 @@
+resource "aws_s3_bucket" "example" {
+  bucket = "my-unique-bucket-name"
+}
 
 resource "aws_s3_bucket_public_access_block" "example" {
   bucket = aws_s3_bucket.example.id
@@ -6,4 +9,6 @@ resource "aws_s3_bucket_public_access_block" "example" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+  depends_on = ["aws_s3_bucket.example"]
 }
+
